@@ -1,0 +1,4 @@
+.pio/
+.vscode/
+*.local
+firmware/src/config.h.local
