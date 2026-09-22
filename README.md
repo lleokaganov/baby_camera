@@ -163,7 +163,9 @@ esptool reports with one identical error message.
 ## Case
 
 Printed from [CasperJohansen's ESP32-CAM ball-joint case](https://www.thingiverse.com/thing:6106534)
-(CC BY), which needs no supports and no modification. Parts used:
+(CC BY), which needs no supports and no modification. The three files we used
+are copied into [`stl/`](stl/) — see the note there for print settings and
+attribution. Parts used:
 
 * `ESP32Cam-Caseantennahole+3vents.stl` — three vents matter, the board runs warm
   on a continuous stream
