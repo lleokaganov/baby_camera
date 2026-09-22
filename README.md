@@ -39,6 +39,12 @@ that should be optional.
   (marked `441` on the die); the pad names are identical on both.
 * 5 V supply worth the name (see below)
 
+<img src="docs/ESP32_CAM.webp" width="300" alt="AI-Thinker ESP32-CAM board">
+<img src="docs/INMP441.webp" width="300" alt="INMP441 microphone, round variant">
+
+Left: the ESP32-CAM, camera ribbon folded over the module. Right: the INMP441
+in its round form, the die marked `441`. Both are a couple of euros apiece.
+
 <img src="docs/inside.webp" width="460" alt="ESP32-CAM inside the printed case">
 
 The two heatsinks are not decorative. The board runs warm on a continuous
