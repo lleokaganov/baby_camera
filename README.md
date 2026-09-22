@@ -8,6 +8,8 @@ The point of this repository is not the code — it is short — but the half-do
 things that silently do not work the way the tutorials say they do. Every one
 of them cost an evening. They are all written down below.
 
+<img src="docs/ian.webp" width="380" alt="the page in use: level meter, player, live video">
+
 ## What it does
 
 | endpoint | what |
@@ -32,8 +34,15 @@ that should be optional.
 
 * **AI-Thinker ESP32-CAM** (sold with the marking `HW-297`, among others)
 * **OV2640** camera, the standard 8×8 mm module
-* **INMP441** I2S microphone module — pins labelled `GND VDD SO L/R WS SCK`
+* **INMP441** I2S microphone module — pins labelled `GND VDD SO L/R WS SCK`.
+  Sold both as the familiar rectangular breakout and as a small round board
+  (marked `441` on the die); the pad names are identical on both.
 * 5 V supply worth the name (see below)
+
+<img src="docs/inside.webp" width="460" alt="ESP32-CAM inside the printed case">
+
+The two heatsinks are not decorative. The board runs warm on a continuous
+stream, which is also why the vented shell is the one to print.
 
 ### Wiring
 
@@ -153,9 +162,17 @@ Printed from [CasperJohansen's ESP32-CAM ball-joint case](https://www.thingivers
 * `ESP32Cam-Caseantennahole+3vents.stl` — three vents matter, the board runs warm
   on a continuous stream
 * `ESP32Cam-LensAdapter8x8module+smiley.stl` — for the stock 8×8 camera
-* `ESP32Cam-MountingKit.stl` — wall plate, ball, knurled nut
+* `ESP32Cam-MountingKit.stl` — wall plate, ball and knurled nut, if you are
+  mounting to a wall or a shelf
 
 Screws: 4× M2.5×4, 4× M2.5×5, 2× M2×5.
+
+<img src="docs/outside.webp" width="330" alt="case front: lens, microphone port, LED slot">
+<img src="docs/bed.webp" width="330" alt="mounted on the cot rail">
+
+How it hangs is a question about your cot, not about this project. The ball
+mount from the kit suits a wall; the one in the photo is a printed bracket and
+two cable ties on the rail, aimed down into the cot.
 
 Printed in HIPS for the case and SBS for the ball joint — the joint holds its
 angle by friction and wants a plastic with some give. PLA is a poor choice for
