@@ -1,0 +1,21 @@
+[Unit]
+Description=babyfan - one camera connection, many viewers
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/babyfan/babyfan.py
+Environment=BABYFAN_CAMERA=10.1.1.25
+Environment=BABYFAN_HOST=127.0.0.1
+Environment=BABYFAN_PORT=8090
+Restart=always
+RestartSec=3
+User=nobody
+# Nothing is written anywhere; keep it boxed in.
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=multi-user.target

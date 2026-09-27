@@ -192,11 +192,17 @@ it goes deaf.
 
 ## Limits
 
-**One listener at a time.** The microphone task feeds a single ring buffer and
-reading from it is destructive, so two listeners tear the stream between them —
-not "the second one fails", but *both* get shredded. Two browser tabs on one
-machine is enough to do it. Supporting several would mean a buffer per
-connection; for one phone it is not worth it.
+**One listener at a time — on the board.** The microphone task feeds a single
+ring buffer and reading from it is destructive, so two listeners tear the
+stream between them: not "the second one fails", but *both* get shredded. Two
+browser tabs on one machine is enough to do it.
+
+This is fixed outside the firmware. [`proxy/`](proxy/) holds `babyfan`, a
+small Python daemon that keeps **one** connection to the board and fans it out
+to as many viewers as you like — grandmothers included. It also closes that
+connection whenever nobody is watching, which matters when the camera runs off
+a power bank and is unwatched most of the day. No firmware change, so it works
+on a board you have already sealed into its case.
 
 **No recording.** Two unsynchronised streams are fine for listening and hopeless
 for making a file you can watch later. That would mean RTSP, which on the
