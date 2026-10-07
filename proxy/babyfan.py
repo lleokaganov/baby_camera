@@ -145,6 +145,21 @@ class Fanout:
             except Exception:
                 pass
             self.upstream = None
+            # Drop every viewer. When the camera goes away -- it reboots, the
+            # power bank hiccups, WiFi drops -- the bytes simply stop. A viewer
+            # left holding an open socket sees no error at all: the browser
+            # keeps showing the last frame and waits forever. Closing them is
+            # what turns a silent freeze into a reconnect.
+            if self.viewers:
+                log.info("%s: upstream gone, dropping %d viewer(s)",
+                         self.name, len(self.viewers))
+            for client in list(self.viewers):
+                try:
+                    client["w"].close()
+                except Exception:
+                    pass
+            self.viewers.clear()
+            self.preamble = b""
 
     def _broadcast(self, chunk):
         for client in list(self.viewers):

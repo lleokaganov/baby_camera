@@ -66,6 +66,14 @@ rebuilt every few seconds, which costs the board more than staying connected.
 **A viewer whose socket backs up past 4 MB is dropped.** One stalled phone
 would otherwise grow the buffer until the Pi runs out of memory.
 
+**When the camera goes away, every viewer is dropped.** This is not tidiness,
+it is the difference between a reconnect and a silent freeze. If the upstream
+simply stops — the board reboots, the power bank hiccups — a viewer left
+holding an open socket receives no error at all: the browser keeps the last
+frame on screen and waits forever. Closing the socket is the only signal it
+will act on. The page should reconnect on `error`, after a pause, so a
+rebooting camera is not hammered while it comes back.
+
 **Video viewers start at a part boundary.** Joining mid-frame would hand them
 half a JPEG.
 
